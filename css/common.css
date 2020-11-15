@@ -1,0 +1,1637 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+@charset "utf-8";
+@import url("./layout_base.css");
+
+/* 웹 접근성을 위한 CSS */
+/* 리더기에서 읽지 않도록 하기 위함 */
+/* https://nuli.navercorp.com/community/article/1132804 */
+.skipnavi {
+   position: absolute;
+   left: 0;
+   top: -50px;
+   text-indent: -9999px;
+   font-size: 0;
+   width: 100%;
+   z-index: 999;
+}
+
+.skipnavi li a:focus,
+.skipnavi li a:active {
+   position: absolute;
+   left: 0;
+   top: 50px;
+   display: block;
+   width: 100%;
+   padding: 5px;
+   text-align: center;
+   text-indent: 0px;
+   font-size: 12px;
+   font-weight: bold;
+   background-color: #f2f2f2;
+}
+
+/* 공통 부분 */
+
+/* *을 사용하여 모든 태그를 하는 것보다는 직접 사용할 태그를 명시하는 것이 속도적으로 유리함 */
+* {
+   margin: 0;
+   padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: normal;
+   font-size: inherit;
+}
+
+ul,
+ol,
+li {
+   list-style: none;
+}
+
+.clear:after {
+   content: "";
+   display: block;
+   clear: both;
+}
+
+a {
+   text-decoration: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:focus {
+   color: #444;
+}
+
+body {
+   height: 100%;
+   font-family: "맑은 고딕", "Malgun Gothic", sans-serif;
+   font-size: 16px;
+   letter-spacing: -1px;
+   color: #444;
+   white-space: normal;
+   word-wrap: break-word;
+   line-height: 1;
+}
+
+.hdd,
+legend {
+   font-size: 0;
+   width: 0;
+   height: 0;
+   line-height: 0;
+   text-indent: -9999px;
+   overflow: hidden;
+   visibility: hidden;
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+input,
+select,
+textarea,
+button,
+form,
+img,
+label {
+   vertical-align: middle;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="tel"],
+input[type="email"] {
+   box-sizing: border-box;
+   display: inline-block;
+   height: 45px;
+   padding: 0 10px;
+   border: 1px solid #ccc;
+   background-color: #fff;
+   line-height: normal;
+   font-size: 15px;
+}
+
+textarea {
+   box-sizing: border-box;
+   padding: 10px;
+   border: 1px solid #ccc;
+   font-size: 15px;
+}
+
+input[type="checkbox"].css-checkbox {
+   overflow: hidden;
+   position: absolute;
+   left: -1000px;
+   width: 1px;
+   height: 1px;
+}
+
+input[type="checkbox"].css-checkbox + label {
+   display: inline-block;
+   height: 20px;
+   padding-left: 30px !important;
+   line-height: 20px !important;
+   background: url(../images/bg_checkbox.png) no-repeat 0 0;
+   background-size: 20px;
+   cursor: pointer;
+   vertical-align: middle;
+   font-size: 15px;
+}
+
+input[type="checkbox"].css-checkbox:checked + label {
+   background-position: 0 -20px;
+}
+
+/* sub page visual 영역 공통 */
+.location_area {
+   height: 445px;
+   background: url(../images/img_top2.jpg) no-repeat center bottom;
+}
+
+.member {
+   height: 445px;
+   background: url(../images/img_top5.jpg) no-repeat center bottom;
+}
+
+.customer {
+   height: 445px;
+   background: url(../images/img_top2.jpg) no-repeat center bottom;
+}
+
+.package {
+   height: 445px;
+   background: url(../images/img_top3.jpg) no-repeat center bottom;
+}
+
+.location_area .tit_page {
+   padding: 250px 0 0 0;
+   margin: 0 50px;
+   border-bottom: 1px solid #ccc;
+   font: 30px "Arial Narrow";
+   color: #fff;
+   letter-spacing: 3px;
+}
+
+.location_area .tit_page .in {
+   font-variant: small-caps;
+}
+
+.location_area .location {
+   padding: 20px 0 0 50px;
+   color: #fff;
+}
+
+.location_area .location .path {
+   display: inline-block;
+   padding: 0 10px;
+}
+
+.location_area .page_menu {
+   display: none;
+}
+
+.bodytext_area {
+   box-sizing: border-box;
+   padding: 55px 50px 0;
+}
+
+/* sub page visual 영역 공통 끝*/
+
+/* 공통 부분 끝 */
+
+.box_inner {
+   width: 1050px;
+   margin: 0 auto;
+}
+
+header {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 113px;
+   background: rgba(0, 0, 0, 0.5);
+   z-index: 100;
+}
+
+header .header_area h1 {
+   float: left;
+   padding: 45px 0px 0px;
+}
+
+header .header_area h1 a {
+   display: block;
+   width: 270px;
+   height: 71px;
+   text-indent: -9999px;
+   overflow: hidden;
+   background: url("../images/logo.png") no-repeat;
+}
+
+.header_cont {
+   float: right;
+   width: 780px;
+}
+
+.header_cont .util {
+   text-align: right;
+   padding-top: 10px;
+}
+
+.header_area .util li {
+   display: inline;
+}
+
+.header_cont .util li:after {
+   content: "|";
+   display: inline-block;
+   padding: 0px 10px;
+   font-size: 10px;
+   color: #eee;
+   position: relative;
+   top: -2px;
+}
+
+.header_cont .util li:last-child:after {
+   content: "";
+   display: none;
+}
+
+.header_cont .util li a {
+   font-size: 14px;
+   color: #eee;
+}
+
+.header_cont .gnb {
+   float: right;
+   box-sizing: border-box;
+   padding-top: 5px;
+}
+
+.header_cont .gnb li {
+   float: left;
+}
+
+.header_cont .gnb li a {
+   display: block;
+   padding: 26px 40px;
+   font-size: 18px;
+   color: #fff;
+}
+
+.header_cont .gnb li:last-child a {
+   padding-right: 0;
+}
+
+#container {
+   padding-bottom: 70px;
+}
+
+.visualRoll,
+.viewImgList {
+   position: relative;
+   width: 100%;
+}
+
+.viewImgList li {
+   text-align: center;
+   height: 550px;
+   line-height: 550px;
+   background-size: cover !important;
+}
+
+.viewImgList li.imgList0 {
+   position: relative;
+   z-index: 50;
+   background: url("../images/mainslide01.jpg") no-repeat center;
+}
+
+.viewImgList li.imgList1 {
+   position: absolute;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   background: url("../images/mainslide02.jpg") no-repeat center;
+}
+
+.viewImgList li.imgList2 {
+   position: absolute;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   background: url("../images/mainslide03.jpg") no-repeat center;
+}
+
+.viewImgList li .roll_content {
+   position: relative;
+}
+
+.viewImgList li .roll_content .roll_txtline {
+   position: absolute;
+   left: 0;
+   bottom: 60px;
+   width: 100%;
+   line-height: 1;
+   text-align: center;
+   font-size: 22px;
+   color: #fff;
+   letter-spacing: 2px;
+}
+
+.rollbtnArea {
+   position: absolute;
+   width: 100%;
+   left: 0;
+   bottom: 25px;
+   z-index: 200;
+}
+
+.rollbtnArea .rollingbtn {
+   width: 320px;
+   margin: 0 auto;
+   text-align: center;
+}
+
+.rollbtnArea .rollingbtn li {
+   display: inline-block;
+   margin-right: 5px;
+}
+
+.rollbtnArea .rollingbtn li.butt0 {
+   margin-left: 10px;
+}
+
+.rollbtnArea .rollingbtn li.rollplay {
+   display: none;
+}
+
+.rollbtnArea .rollingbtn li a {
+   vertical-align: top;
+}
+
+.about_area h2 {
+   padding: 55px 0 105px;
+   text-align: center;
+   font-size: 40px;
+}
+
+.about_area .about_box {
+   background-color: #f4f0e9;
+}
+
+.about_area .place_list li {
+   float: left;
+   width: 32%;
+   margin-left: 2%;
+   text-align: center;
+   position: relative;
+   top: -50px;
+}
+
+.about_area .place_list li:first-child {
+   margin-left: 0;
+}
+
+.about_area .place_list li .img_topplace {
+   width: 100%;
+}
+
+.about_area .place_list li h3 {
+   font-weight: bold;
+   font-size: 18px;
+   padding-top: 25px;
+   color: #000;
+}
+
+.about_area .place_list li p.txt {
+   box-sizing: border-box;
+   padding: 10px 30px 0;
+   width: 100%;
+   overflow: hidden;
+   word-break: keep-all;
+   line-height: 1.8;
+   color: #666;
+}
+
+.about_area .place_list li .view {
+   display: inline-block;
+   margin-top: 20px;
+   padding-top: 5px;
+   border-top: 2px solid #333;
+   color: #555;
+}
+
+.appbbs_area {
+   padding: 60px 0;
+}
+
+.appbbs_area > .appbbs_box > .app_line {
+   float: left;
+   width: 66%;
+   box-sizing: border-box;
+   padding: 45px 0;
+   text-align: center;
+   background: url("../images/bg_app.jpg") no-repeat;
+   font-size: 0;
+}
+
+.appbbs_area > .appbbs_box > .app_line > a {
+   display: inline-block;
+   width: 42.4%;
+   height: 100px;
+   line-height: 100px;
+   box-sizing: border-box;
+   padding-left: 75px;
+   text-align: left;
+   background: rgba(0, 0, 0, 0.3) url("../images/ico_katalk.png") no-repeat 20px
+      50%;
+   border: 2px solid #fff;
+   margin-right: 10px;
+   font-size: 26px;
+   color: #fff;
+   vertical-align: middle;
+}
+
+.appbbs_area > .appbbs_box > .app_line > a + a {
+   margin-right: 0;
+   padding-left: 85px;
+   background-image: url(../images/ico_phone.png);
+}
+
+.appbbs_box > .bbs_line {
+   float: right;
+   width: 30%;
+}
+
+.appbbs_box > .bbs_line h3 {
+   font-size: 26px;
+}
+
+.appbbs_box > .bbs_line > .notice_recent {
+   padding-top: 10px;
+}
+
+.appbbs_box > .bbs_line > .notice_recent > li {
+   padding: 8px 0;
+}
+.appbbs_box > .bbs_line > .notice_recent > li > a {
+   display: block;
+   padding-left: 14px;
+   background: url(../images/ico_bullet.png) no-repeat 0 50%;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+footer {
+   border-top: 1px solid #ddd;
+}
+
+footer > .foot_area {
+   position: relative;
+   padding-bottom: 40px;
+}
+
+footer > .foot_area > .foot_list {
+   padding-top: 25px;
+}
+
+footer > .foot_area > .foot_list li {
+   float: left;
+}
+
+footer > .foot_area > .foot_list li:first-child::after {
+   content: "|";
+   display: inline-block;
+   padding: 0 10px;
+   font-size: 10px;
+   color: #000;
+   position: relative;
+   top: -2px;
+}
+
+footer > .foot_area > .foot_list > li > a {
+   font-weight: bold;
+   font-size: 15px;
+}
+
+footer > .foot_area > h2 {
+   padding-top: 25px;
+   font-size: 14px;
+   color: #666;
+}
+
+footer > .foot_area > .addr {
+   padding-top: 5px;
+   line-height: 1.4;
+   font-size: 13px;
+   color: #666;
+}
+
+footer > .foot_area > .addr .space0 {
+   letter-spacing: 0;
+}
+
+footer > .foot_area > .copy {
+   padding-top: 3px;
+   font-size: 13px;
+   color: #666;
+   letter-spacing: 0;
+}
+
+footer > .foot_area > .snslink {
+   position: absolute;
+   right: 20px;
+   top: 50px;
+}
+
+footer > .foot_area > .snslink > li {
+   float: left;
+   margin-left: 60px;
+}
+
+footer > .foot_area > .snslink > li > a {
+   display: block;
+   width: 50px;
+   height: 74px;
+   text-indent: -9999px;
+   overflow: hidden;
+   background: url("../images/ico_blog_r.png") no-repeat;
+}
+
+footer > .foot_area > .snslink > li + li > a {
+   background: url("../images/ico_facebook_r.png");
+}
+
+footer > .foot_area > .snslink > li:last-child > a {
+   background: url("../images/ico_instargram_r.png") no-repeat;
+}
+
+.quick_area {
+   position: fixed;
+   top: 171px;
+   right: 0;
+   width: 94px;
+   z-index: 100;
+}
+
+.quick_area > .quick_list > li {
+   text-align: center;
+   background-color: #282828;
+   font-size: 15px;
+}
+
+.quick_area > .quick_list > li > a {
+   display: block;
+   padding: 15px 0;
+   border-top: 1px solid #4d4d4d;
+}
+
+.quick_area > .quick_list > li:first-child a {
+   border-top: none;
+}
+
+.quick_area > .quick_list > li a > h3 {
+   padding-bottom: 10px;
+   color: #ddd;
+   letter-spacing: -2px;
+}
+
+.quick_area > .quick_list > li:last-child a > h3 {
+   padding-bottom: 0;
+}
+
+.quick_area > .quick_list > li > a > p {
+   line-height: 1.3;
+   font-size: 12px;
+   color: #fff;
+}
+
+.to_top {
+   text-align: center;
+   background-color: #fff;
+}
+
+.to_top a {
+   display: block;
+   height: 45px;
+   box-sizing: border-box;
+   text-indent: -9999px;
+   overflow: hidden;
+   border-left: 1px solid #a3a3a3;
+   border-bottom: 1px solid #a3a3a3;
+   background: url("../images/ico_totop.png") no-repeat center;
+   background-size: 50%;
+}
+
+/* 로그인 */
+
+.login_wrap {
+   width: 508px;
+   margin: 50px auto 0;
+}
+
+.loginTit {
+   text-align: center;
+}
+
+.loginTit > a {
+   display: block;
+}
+
+.loginTit > a > img {
+   width: 100%;
+}
+
+.login_list {
+   width: 75%;
+   margin: 70px auto 20px;
+}
+
+.login_list > li {
+   position: relative;
+   margin-bottom: 4px;
+   height: 54px;
+   box-sizing: border-box;
+   padding-left: 50px;
+   border-radius: 5px;
+}
+
+.login_list > li > a {
+   display: block;
+   height: 54px;
+   box-sizing: border-box;
+   line-height: 54px;
+   text-align: center;
+   font-size: 14px;
+   color: #fff;
+}
+
+.login_list > li:last-child {
+   margin-bottom: 0;
+}
+
+.login_list > .kakao {
+   background: #ffea26 url("../images/ico_katalk.png") no-repeat 15px 50%;
+   background-size: 45px 45px;
+}
+
+.login_list > .kakao > a {
+   color: #202224;
+}
+
+.login_list > .naver {
+   background: #00c300 url("../images/ico_naver.png") no-repeat 15px 50%;
+   background-size: 45px 45px;
+}
+
+.login_list > .facebook {
+   background: #405ea9 url("../images/ico_face.png") no-repeat 15px 50%;
+   background-size: 45px 45px;
+}
+
+.login_list > .email {
+   background: #888 url("../images/ico_cellphone.png") no-repeat 15px 50%;
+   background-size: 45px 45px;
+}
+
+.btnonoff_line {
+   width: 75%;
+   margin: 10px auto;
+   text-align: center;
+}
+
+.btnonoff_line .btn_onoff {
+   margin-left: 5px;
+   font-size: 14px;
+}
+
+/* 
+   appearance
+   - 운영체제 및 브라우저에 기본적으로 설정되어 있는 테마를 기반으로
+     요소를 표현할 때 사용한다. 네이티브로 지원되는 모양을 해제하거나 추가할 때
+     사용한다.
+     appearance: none;  ==> 원래 쓰이는 속성을 없앤다. 
+*/
+.switch {
+   position: relative;
+   display: inline-block;
+   width: 35px;
+   height: 22px;
+   margin: 0;
+   padding: 0;
+   border-radius: 16px;
+   background: #e5e5e5;
+   vertical-align: top;
+   /* div의 원래 기능 삭제 */
+   appearance: none;
+   cursor: pointer;
+   z-index: 0;
+}
+
+.switch:before {
+   content: "";
+   position: absolute;
+   left: 1px;
+   top: 1px;
+   width: 33px;
+   height: 20px;
+   border-radius: 15px;
+   background: #fff;
+   z-index: 1;
+}
+
+.switch:after {
+   content: "";
+   position: absolute;
+   left: 1px;
+   top: 1px;
+   width: 19px;
+   height: 19px;
+   border-radius: 20px;
+   background: #fff;
+   z-index: 2;
+   box-shadow: 0 2px 5px #999;
+}
+
+/* 회원 가입 */
+
+.appForm {
+   margin: 40px auto 0;
+}
+
+.appForm .info_pilsoo {
+   position: relative;
+   padding-left: 20px;
+   padding-bottom: 10px;
+   padding-top: 5px;
+   border-bottom: 2px solid #000;
+   font-size: 15px;
+   color: #f00;
+}
+
+.appForm .pilsoo_item:before {
+   content: "*";
+   display: inline-block;
+   position: absolute;
+   left: 5px;
+   top: 3px;
+   width: 15px;
+   font-weight: bold;
+   font-size: 17px;
+   color: #f00;
+}
+
+/* 회원가입 */
+.appForm .app_list {
+   padding: 10px 0;
+   border-bottom: 1px solid #ccc;
+}
+
+.appForm .app_list li {
+   padding: 8px 0;
+}
+
+.appForm .app_list li .tit_lbl {
+   position: relative;
+   float: left;
+   width: 150px;
+   box-sizing: border-box;
+   padding-left: 20px;
+   line-height: 42px;
+   font-weight: bold;
+   font-size: 17px;
+   letter-spacing: -2px;
+}
+
+.appForm .app_list li .app_content {
+   float: right;
+   width: 770px;
+}
+
+.appForm .app_list li .app_content * {
+   vertical-align: top;
+}
+
+.appForm .app_list li .app_content.email_area .ico_spcae {
+   display: inline-block;
+   padding-top: 10px;
+}
+
+.appForm .app_list li .app_content label {
+   vertical-align: middle;
+}
+
+.btn_line {
+   padding: 20px 0;
+}
+
+.btn_line a:btn_app {
+   height: 37px;
+   line-height: 37px;
+   margin-left: 100px;
+   font-size: 14px;
+}
+=======
+@charset "utf-8";
+
+/* 웹 접근성을 위한 CSS */
+/* 리더기에서 읽지 않도록 하기 위함 */
+/* https://nuli.navercorp.com/community/article/1132804 */
+.skipnavi {
+   position: absolute;
+   left: 0;
+   top: -50px;
+   text-indent: -9999px;
+   font-size: 0;
+   width: 100%;
+   z-index: 999;
+}
+
+.skipnavi li a:focus,
+.skipnavi li a:active {
+   position: absolute;
+   left: 0;
+   top: 50px;
+   display: block;
+   width: 100%;
+   padding: 5px;
+   text-align: center;
+   text-indent: 0px;
+   font-size: 12px;
+   font-weight: bold;
+   background-color: #f2f2f2;
+}
+
+/* 공통 부분 */
+
+/* *을 사용하여 모든 태그를 하는 것보다는 직접 사용할 태그를 명시하는 것이 속도적으로 유리함 */
+* {
+   margin: 0;
+   padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: normal;
+   font-size: inherit;
+}
+
+ul,
+ol,
+li {
+   list-style: none;
+}
+
+.clear:after {
+   content: "";
+   display: block;
+   clear: both;
+}
+
+a {
+   text-decoration: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:focus {
+   color: #444;
+}
+
+body {
+   height: 100%;
+   font-family: "맑은 고딕", "Malgun Gothic", sans-serif;
+   font-size: 16px;
+   letter-spacing: -1px;
+   color: #444;
+   white-space: normal;
+   word-wrap: break-word;
+   line-height: 1;
+}
+
+.hdd,
+legend {
+   font-size: 0;
+   width: 0;
+   height: 0;
+   line-height: 0;
+   text-indent: -9999px;
+   overflow: hidden;
+   visibility: hidden;
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+input,
+select,
+textarea,
+button,
+form,
+img,
+label {
+   vertical-align: middle;
+}
+
+/* 공통 부분 끝 */
+
+.box_inner {
+   width: 1050px;
+   margin: 0 auto;
+}
+
+header {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 113px;
+   background: rgba(0, 0, 0, 0.5);
+   z-index: 100;
+}
+
+header .header_area h1 {
+   float: left;
+   padding: 45px 0px 0px;
+}
+
+header .header_area h1 a {
+   display: block;
+   width: 270px;
+   height: 71px;
+   text-indent: -9999px;
+   overflow: hidden;
+   background: url("../images/logo.png") no-repeat;
+}
+
+.header_cont {
+   float: right;
+   width: 780px;
+}
+
+.header_cont .util {
+   text-align: right;
+   padding-top: 10px;
+}
+
+.header_area .util li {
+   display: inline;
+}
+
+.header_cont .util li:after {
+   content: "|";
+   display: inline-block;
+   padding: 0px 10px;
+   font-size: 10px;
+   color: #eee;
+   position: relative;
+   top: -2px;
+}
+
+.header_cont .util li:last-child:after {
+   content: "";
+   display: none;
+}
+
+.header_cont .util li a {
+   font-size: 14px;
+   color: #eee;
+}
+
+.header_cont .gnb {
+   float: right;
+   box-sizing: border-box;
+   padding-top: 5px;
+}
+
+.header_cont .gnb li {
+   float: left;
+}
+
+.header_cont .gnb li a {
+   display: block;
+   padding: 26px 40px;
+   font-size: 18px;
+   color: #fff;
+}
+
+.header_cont .gnb li:last-child a {
+   padding-right: 0;
+}
+
+#container {
+   padding-bottom: 70px;
+}
+
+.visualRoll,
+.viewImgList {
+   position: relative;
+   width: 100%;
+}
+
+.viewImgList li {
+   text-align: center;
+   height: 550px;
+   line-height: 550px;
+   background-size: cover !important;
+}
+
+.viewImgList li.imgList0 {
+   position: relative;
+   z-index: 50;
+   background: url("../images/mainslide01.jpg") no-repeat center;
+}
+
+.viewImgList li.imgList1 {
+   position: absolute;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   background: url("../images/mainslide02.jpg") no-repeat center;
+}
+
+.viewImgList li.imgList2 {
+   position: absolute;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   background: url("../images/mainslide03.jpg") no-repeat center;
+}
+
+.viewImgList li .roll_content {
+   position: relative;
+}
+
+.viewImgList li .roll_content .roll_txtline {
+   position: absolute;
+   left: 0;
+   bottom: 60px;
+   width: 100%;
+   line-height: 1;
+   text-align: center;
+   font-size: 22px;
+   color: #fff;
+   letter-spacing: 2px;
+}
+
+.rollbtnArea {
+   position: absolute;
+   width: 100%;
+   left: 0;
+   bottom: 25px;
+   z-index: 200;
+}
+
+.rollbtnArea .rollingbtn {
+   width: 320px;
+   margin: 0 auto;
+   text-align: center;
+}
+
+.rollbtnArea .rollingbtn li {
+   display: inline-block;
+   margin-right: 5px;
+}
+
+.rollbtnArea .rollingbtn li.butt0 {
+   margin-left: 10px;
+}
+
+.rollbtnArea .rollingbtn li.rollplay {
+   display: none;
+}
+
+.rollbtnArea .rollingbtn li a {
+   vertical-align: top;
+}
+
+.about_area h2 {
+   padding: 55px 0 105px;
+   text-align: center;
+   font-size: 40px;
+}
+
+.about_area .about_box {
+   background-color: #f4f0e9;
+}
+
+.about_area .place_list li {
+   float: left;
+   width: 32%;
+   margin-left: 2%;
+   text-align: center;
+   position: relative;
+   top: -50px;
+}
+
+.about_area .place_list li:first-child {
+   margin-left: 0;
+}
+
+.about_area .place_list li .img_topplace {
+   width: 100%;
+}
+
+.about_area .place_list li h3 {
+   font-weight: bold;
+   font-size: 18px;
+   padding-top: 25px;
+   color: #000;
+}
+
+.about_area .place_list li p.txt {
+   box-sizing: border-box;
+   padding: 10px 30px 0;
+   width: 100%;
+   overflow: hidden;
+   word-break: keep-all;
+   line-height: 1.8;
+   color: #666;
+}
+
+.about_area .place_list li .view {
+   display: inline-block;
+   margin-top: 20px;
+   padding-top: 5px;
+   border-top: 2px solid #333;
+   color: #555;
+}
+
+.appbbs_area {
+   padding: 60px 0;
+}
+
+.appbbs_area > .appbbs_box > .app_line {
+   float: left;
+   width: 66%;
+   box-sizing: border-box;
+   padding: 45px 0;
+   text-align: center;
+   background: url("../images/bg_app.jpg") no-repeat;
+   font-size: 0;
+}
+
+.appbbs_area > .appbbs_box > .app_line > a {
+   display: inline-block;
+   width: 42.4%;
+   height: 100px;
+   line-height: 100px;
+   box-sizing: border-box;
+   padding-left: 75px;
+   text-align: left;
+   background: rgba(0, 0, 0, 0.3) url("../images/ico_kakao.png") no-repeat 20px
+      50%;
+   border: 2px solid #fff;
+   margin-right: 10px;
+   font-size: 26px;
+   color: #fff;
+   vertical-align: middle;
+}
+
+.appbbs_area > .appbbs_box > .app_line > a + a {
+   margin-right: 0;
+   padding-left: 85px;
+   background-image: url(../images/ico_phone.png);
+}
+
+.appbbs_box > .bbs_line {
+   float: right;
+   width: 30%;
+}
+
+.appbbs_box > .bbs_line h3 {
+   font-size: 26px;
+}
+
+.appbbs_box > .bbs_line > .notice_recent {
+   padding-top: 10px;
+}
+
+.appbbs_box > .bbs_line > .notice_recent > li {
+   padding: 8px 0;
+}
+.appbbs_box > .bbs_line > .notice_recent > li > a {
+   display: block;
+   padding-left: 14px;
+   background: url(../images/ico_bullet.png) no-repeat 0 50%;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+>>>>>>> eca7a14cac099bfca61cea3a29019d3e24ce5f2a
+=======
+@charset "utf-8";
+
+/* 웹 접근성을 위한 CSS */
+/* 리더기에서 읽지 않도록 하기 위함 */
+/* https://nuli.navercorp.com/community/article/1132804 */
+.skipnavi {
+   position: absolute;
+   left: 0;
+   top: -50px;
+   text-indent: -9999px;
+   font-size: 0;
+   width: 100%;
+   z-index: 999;
+}
+
+.skipnavi li a:focus,
+.skipnavi li a:active {
+   position: absolute;
+   left: 0;
+   top: 50px;
+   display: block;
+   width: 100%;
+   padding: 5px;
+   text-align: center;
+   text-indent: 0px;
+   font-size: 12px;
+   font-weight: bold;
+   background-color: #f2f2f2;
+}
+
+/* 공통 부분 */
+
+/* *을 사용하여 모든 태그를 하는 것보다는 직접 사용할 태그를 명시하는 것이 속도적으로 유리함 */
+* {
+   margin: 0;
+   padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: normal;
+   font-size: inherit;
+}
+
+ul,
+ol,
+li {
+   list-style: none;
+}
+
+.clear:after {
+   content: "";
+   display: block;
+   clear: both;
+}
+
+a {
+   text-decoration: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:focus {
+   color: #444;
+}
+
+body {
+   height: 100%;
+   font-family: "맑은 고딕", "Malgun Gothic", sans-serif;
+   font-size: 16px;
+   letter-spacing: -1px;
+   color: #444;
+   white-space: normal;
+   word-wrap: break-word;
+   line-height: 1;
+}
+
+.hdd,
+legend {
+   font-size: 0;
+   width: 0;
+   height: 0;
+   line-height: 0;
+   text-indent: -9999px;
+   overflow: hidden;
+   visibility: hidden;
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+input,
+select,
+textarea,
+button,
+form,
+img,
+label {
+   vertical-align: middle;
+}
+
+/* 공통 부분 끝 */
+
+.box_inner {
+   width: 1050px;
+   margin: 0 auto;
+}
+
+header {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 113px;
+   background: rgba(0, 0, 0, 0.5);
+   z-index: 100;
+}
+
+header .header_area h1 {
+   float: left;
+   padding: 45px 0px 0px;
+}
+
+header .header_area h1 a {
+   display: block;
+   width: 270px;
+   height: 71px;
+   text-indent: -9999px;
+   overflow: hidden;
+   background: url("../images/logo.png") no-repeat;
+}
+
+.header_cont {
+   float: right;
+   width: 780px;
+}
+
+.header_cont .util {
+   text-align: right;
+   padding-top: 10px;
+}
+
+.header_area .util li {
+   display: inline;
+}
+
+.header_cont .util li:after {
+   content: "|";
+   display: inline-block;
+   padding: 0px 10px;
+   font-size: 10px;
+   color: #eee;
+   position: relative;
+   top: -2px;
+}
+
+.header_cont .util li:last-child:after {
+   content: "";
+   display: none;
+}
+
+.header_cont .util li a {
+   font-size: 14px;
+   color: #eee;
+}
+
+.header_cont .gnb {
+   float: right;
+   box-sizing: border-box;
+   padding-top: 5px;
+}
+
+.header_cont .gnb li {
+   float: left;
+}
+
+.header_cont .gnb li a {
+   display: block;
+   padding: 26px 40px;
+   font-size: 18px;
+   color: #fff;
+}
+
+.header_cont .gnb li:last-child a {
+   padding-right: 0;
+}
+
+#container {
+   padding-bottom: 70px;
+}
+
+.visualRoll,
+.viewImgList {
+   position: relative;
+   width: 100%;
+}
+
+.viewImgList li {
+   text-align: center;
+   height: 550px;
+   line-height: 550px;
+   background-size: cover !important;
+}
+
+.viewImgList li.imgList0 {
+   position: relative;
+   z-index: 50;
+   background: url("../images/mainslide01.jpg") no-repeat center;
+}
+
+.viewImgList li.imgList1 {
+   position: absolute;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   background: url("../images/mainslide02.jpg") no-repeat center;
+}
+
+.viewImgList li.imgList2 {
+   position: absolute;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   background: url("../images/mainslide03.jpg") no-repeat center;
+}
+
+.viewImgList li .roll_content {
+   position: relative;
+}
+
+.viewImgList li .roll_content .roll_txtline {
+   position: absolute;
+   left: 0;
+   bottom: 60px;
+   width: 100%;
+   line-height: 1;
+   text-align: center;
+   font-size: 22px;
+   color: #fff;
+   letter-spacing: 2px;
+}
+
+.rollbtnArea {
+   position: absolute;
+   width: 100%;
+   left: 0;
+   bottom: 25px;
+   z-index: 200;
+}
+
+.rollbtnArea .rollingbtn {
+   width: 320px;
+   margin: 0 auto;
+   text-align: center;
+}
+
+.rollbtnArea .rollingbtn li {
+   display: inline-block;
+   margin-right: 5px;
+}
+
+.rollbtnArea .rollingbtn li.butt0 {
+   margin-left: 10px;
+}
+
+.rollbtnArea .rollingbtn li.rollplay {
+   display: none;
+}
+
+.rollbtnArea .rollingbtn li a {
+   vertical-align: top;
+}
+
+.about_area h2 {
+   padding: 55px 0 105px;
+   text-align: center;
+   font-size: 40px;
+}
+
+.about_area .about_box {
+   background-color: #f4f0e9;
+}
+
+.about_area .place_list li {
+   float: left;
+   width: 32%;
+   margin-left: 2%;
+   text-align: center;
+   position: relative;
+   top: -50px;
+}
+
+.about_area .place_list li:first-child {
+   margin-left: 0;
+}
+
+.about_area .place_list li .img_topplace {
+   width: 100%;
+}
+
+.about_area .place_list li h3 {
+   font-weight: bold;
+   font-size: 18px;
+   padding-top: 25px;
+   color: #000;
+}
+
+.about_area .place_list li p.txt {
+   box-sizing: border-box;
+   padding: 10px 30px 0;
+   width: 100%;
+   overflow: hidden;
+   word-break: keep-all;
+   line-height: 1.8;
+   color: #666;
+}
+
+.about_area .place_list li .view {
+   display: inline-block;
+   margin-top: 20px;
+   padding-top: 5px;
+   border-top: 2px solid #333;
+   color: #555;
+}
+
+.appbbs_area {
+   padding: 60px 0;
+}
+
+.appbbs_area > .appbbs_box > .app_line {
+   float: left;
+   width: 66%;
+   box-sizing: border-box;
+   padding: 45px 0;
+   text-align: center;
+   background: url("../images/bg_app.jpg") no-repeat;
+   font-size: 0;
+}
+
+.appbbs_area > .appbbs_box > .app_line > a {
+   display: inline-block;
+   width: 42.4%;
+   height: 100px;
+   line-height: 100px;
+   box-sizing: border-box;
+   padding-left: 75px;
+   text-align: left;
+   background: rgba(0, 0, 0, 0.3) url("../images/ico_kakao.png") no-repeat 20px
+      50%;
+   border: 2px solid #fff;
+   margin-right: 10px;
+   font-size: 26px;
+   color: #fff;
+   vertical-align: middle;
+}
+
+.appbbs_area > .appbbs_box > .app_line > a + a {
+   margin-right: 0;
+   padding-left: 85px;
+   background-image: url(../images/ico_phone.png);
+}
+
+.appbbs_box > .bbs_line {
+   float: right;
+   width: 30%;
+}
+
+.appbbs_box > .bbs_line h3 {
+   font-size: 26px;
+}
+
+.appbbs_box > .bbs_line > .notice_recent {
+   padding-top: 10px;
+}
+
+.appbbs_box > .bbs_line > .notice_recent > li {
+   padding: 8px 0;
+}
+.appbbs_box > .bbs_line > .notice_recent > li > a {
+   display: block;
+   padding-left: 14px;
+   background: url(../images/ico_bullet.png) no-repeat 0 50%;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+>>>>>>> eca7a14cac099bfca61cea3a29019d3e24ce5f2a
